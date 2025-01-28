@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+  font-family: 'Cursive', sans-serif;
+  background: linear-gradient(to bottom, #ffefef, #ffe0f7);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+header.love-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #ff6b6b;
+  color: white;
+  border-bottom: 5px solid #ff9999;
+}
+
+header.love-header button {
+  background-color: white;
+  color: #ff6b6b;
+  border: 2px solid #ff6b6b;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header.love-header button:hover {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+header.love-header p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  white-space: pre-wrap;
+}
+
+/* Falling Hearts */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Travel Section */
+.travel-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.travel-section h2 {
+  font-size: 2rem;
+  color: #ff6b6b;
+}
+
+/* Places List */
+#places-list {
+  text-align: left;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.place-item {
+  margin-bottom: 20px;
+  border: 2px solid #ff6b6b;
+  border-radius: 10px;
+  padding: 10px;
+  background: white;
+}
+
+.place-item h3 {
+  margin: 0;
+  color: #ff6b6b;
+  cursor: pointer;
+}
+
+.place-item img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: none; /* Initially hidden */
+}
+
+.place-item p {
+  display: none; /* Initially hidden */
+  font-size: 1rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+.place-item label {
+  display: none; /* Initially hidden */
+  margin-top: 10px;
+}
+
+/* Progress Bar */
+#progress-bar-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+#progress {
+  width: 0;
+  height: 100%;
+  background: #ff6b6b;
+  transition: width 0.5s ease;
+}

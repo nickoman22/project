@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Love Site</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-music">
+    <audio autoplay loop>
+      <source src="music/your-song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <!-- Love Letter Button -->
+  <header class="love-header">
+    <button id="show-love-letter">Click Me for a Surprise ❤️</button>
+    <p id="love-letter" style="display: none;">
+      My dearest,  
+      You are the reason my heart beats a little faster every day. Here's a list of dreams for us, and I can't wait to explore them with you.  
+      Forever yours,  
+      [Your Name]
+    </p>
+  </header>
+
+  <!-- Falling Hearts Container -->
+  <div id="hearts-container"></div>
+
+  <main>
+    <!-- Travel Section -->
+    <section class="travel-section">
+      <h2>Our Dream Destinations 💖</h2>
+      
+      <!-- List of Places -->
+      <div id="places-list">
+        <!-- List of places will be dynamically added here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar-container">
+    <div id="progress"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
