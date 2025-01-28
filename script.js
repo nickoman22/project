@@ -3,21 +3,7 @@ const places = [
   { name: "Barcelona", image: "images/barcelona.jpg", description: "Beautiful city with amazing architecture." },
   { name: "Paris", image: "images/paris.jpg", description: "The city of love and the Eiffel Tower." },
   { name: "Amsterdam", image: "images/amsterdam.jpg", description: "Canals, tulips, and bicycles." },
-  { name: "Milan", image: "images/milan.jpg", description: "Fashion capital of the world." },
-  { name: "Venice", image: "images/venice.jpg", description: "Romantic gondola rides on the canals." },
-  { name: "Wien", image: "images/wien.jpg", description: "Classical music and stunning architecture." },
-  { name: "Budapest", image: "images/budapest.jpg", description: "Thermal baths and beautiful bridges." },
-  { name: "Sweden", image: "images/sweden.jpg", description: "Land of lakes and forests." },
-  { name: "Switzerland", image: "images/switzerland.jpg", description: "Majestic mountains and chocolate." },
-  { name: "Finland", image: "images/finland.jpg", description: "Northern lights and saunas." },
-  { name: "Norway", image: "images/norway.jpg", description: "Fjords and scenic landscapes." },
-  { name: "Iceland", image: "images/iceland.jpg", description: "Volcanoes, geysers, and glaciers." },
-  { name: "Portugal", image: "images/portugal.jpg", description: "Beautiful beaches and rich history." },
-  { name: "Dubai", image: "images/dubai.jpg", description: "Luxury and futuristic skyscrapers." },
-  { name: "Maldives", image: "images/maldives.jpg", description: "Crystal-clear waters and white sand beaches." },
-  { name: "Brazil", image: "images/brazil.jpg", description: "Carnival, beaches, and the Amazon rainforest." },
-  { name: "Egypt", image: "images/egypt.jpg", description: "Pyramids and ancient wonders." },
-  { name: "Japan", image: "images/japan.jpg", description: "Land of the rising sun with beautiful cherry blossoms." }
+  // Add remaining places here
 ];
 
 const placesList = document.getElementById("places-list");
@@ -90,6 +76,7 @@ showLoveLetterBtn.addEventListener("click", () => {
   for (let i = 0; i < 50; i++) {
     const heart = document.createElement("div");
     heart.className = "heart";
+    heart.textContent = "❤️";
     heart.style.left = `${Math.random() * 100}%`;
     heart.style.animationDuration = `${2 + Math.random() * 3}s`;
     heartsContainer.appendChild(heart);
