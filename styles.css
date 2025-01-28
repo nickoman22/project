@@ -65,6 +65,39 @@ header.love-header p {
   }
 }
 
+/* Side Decorations */
+.side-decor {
+  position: fixed;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  font-size: 2rem;
+  line-height: 1.5;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.side-decor.left {
+  left: 0;
+  text-align: center;
+  animation: float 5s infinite alternate ease-in-out;
+}
+
+.side-decor.right {
+  right: 0;
+  text-align: center;
+  animation: float 5s infinite alternate ease-in-out reverse;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
 /* Travel Section */
 .travel-section {
   text-align: center;
