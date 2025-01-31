@@ -1,71 +1,66 @@
-const places = [
-  { name: "Paris", image: "images/paris.jpg", description: "The city of love and lights." },
-  { name: "Amsterdam", image: "images/amsterdam.jpg", description: "Famous for canals and tulips." },
-  { name: "Japan", image: "images/japan.jpg", description: "Land of cherry blossoms and temples." },
-  { name: "Barcelona", image: "images/barcelona.jpg", description: "Gaudi's architectural marvels." },
-  { name: "Venice", image: "images/venice.jpg", description: "Romantic gondola rides." },
-  { name: "Maldives", image: "images/maldives.jpg", description: "Tropical paradise." },
-  { name: "Iceland", image: "images/iceland.jpg", description: "Land of fire and ice." },
-];
-
-const heartsContainer = document.getElementById("hearts-container");
-const loveLetter = document.getElementById("love-letter");
-const showLoveLetterBtn = document.getElementById("show-love-letter");
-const placesList = document.getElementById("places-list");
-const progressBar = document.getElementById("progress");
-
-let visitedCount = 0;
-
-// Create Places List
-places.forEach((place, index) => {
-  const placeItem = document.createElement("div");
-  placeItem.className = "place-item";
-
-  const title = document.createElement("h3");
-  title.textContent = place.name;
-  title.addEventListener("click", () => {
-    img.style.display = "block";
-    description.style.display = "block";
-    checkbox.style.display = "block";
-  });
-
-  const img = document.createElement("img");
-  img.src = place.image;
-  img.alt = place.name;
-
-  const description = document.createElement("p");
-  description.textContent = place.description;
-
-  const checkbox = document.createElement("label");
-  checkbox.innerHTML = `<input type="checkbox"> Visited`;
-  checkbox.addEventListener("change", (e) => {
-    if (e.target.checked) {
-      visitedCount++;
-      progressBar.style.width = `${(visitedCount / places.length) * 100}%`;
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize falling elements
+    function createFallingElements() {
+        const container = document.querySelector('.falling-elements');
+        const emojis = ['❤️', '💖', '🌷', '🌸', '💐', '🌹'];
+        
+        // Create 40 falling elements
+        for (let i = 0; i < 40; i++) {
+            const element = document.createElement('div');
+            element.className = 'falling-element';
+            element.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            element.style.left = Math.random() * 100 + '%';
+            element.style.animationDuration = Math.random() * 3 + 5 + 's';
+            element.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(element);
+        }
     }
-  });
 
-  placeItem.appendChild(title);
-  placeItem.appendChild(img);
-  placeItem.appendChild(description);
-  placeItem.appendChild(checkbox);
-  placesList.appendChild(placeItem);
-});
+    // Music control
+    const musicToggle = document.getElementById('musicToggle');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    let isMusicPlaying = false;
 
-// Falling Hearts Animation
-showLoveLetterBtn.addEventListener("click", () => {
-  loveLetter.style.display = "block";
+    musicToggle.addEventListener('click', () => {
+        if (isMusicPlaying) {
+            backgroundMusic.pause();
+            musicToggle.textContent = '🎵 Play Music';
+        } else {
+            backgroundMusic.play().catch(() => {
+                alert('Please click "Play Music" to start the song!');
+            });
+            musicToggle.textContent = '🎵 Pause Music';
+        }
+        isMusicPlaying = !isMusicPlaying;
+    });
 
-  for (let i = 0; i < 50; i++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.textContent = "❤️";
-    heart.style.left = `${Math.random() * 100}%`;
-    heart.style.animationDuration = `${2 + Math.random() * 3}s`;
-    heartsContainer.appendChild(heart);
+    // Button functionality
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const letter = document.getElementById('letter');
+    const travelButton = document.getElementById('travelButton');
+    const funMessage = document.getElementById('funMessage');
+    const picture = document.getElementById('picture');
 
-    setTimeout(() => {
-      heart.remove();
-    }, 5000);
-  }
+    yesButton.addEventListener('click', () => {
+        letter.classList.remove('hidden');
+        picture.classList.remove('hidden');
+        travelButton.classList.remove('hidden');
+        funMessage.classList.add('hidden');
+        yesButton.style.transform = 'scale(1)';
+    });
+
+    noButton.addEventListener('click', () => {
+        funMessage.classList.remove('hidden');
+        noButton.style.display = 'none';
+        yesButton.style.transform = 'scale(1.2)';
+        yesButton.textContent = 'YES!! (Please?) 💝';
+    });
+
+    travelButton.addEventListener('click', () => {
+        alert('🎉 Yay! Let\'s start with Paris! 🗼❤️');
+    });
+
+    // Initialize animations
+    createFallingElements();
 });
