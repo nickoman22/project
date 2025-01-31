@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize falling elements
+    // Falling elements animation
     function createFallingElements() {
         const container = document.querySelector('.falling-elements');
         const emojis = ['❤️', '💖', '🌷', '🌸', '💐', '🌹'];
         
-        // Create 40 falling elements
         for (let i = 0; i < 40; i++) {
             const element = document.createElement('div');
             element.className = 'falling-element';
@@ -34,31 +33,48 @@ document.addEventListener('DOMContentLoaded', () => {
         isMusicPlaying = !isMusicPlaying;
     });
 
-    // Button functionality
+    // Elements
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
+    const buttonsContainer = document.getElementById('buttonsContainer');
     const letter = document.getElementById('letter');
     const travelButton = document.getElementById('travelButton');
     const funMessage = document.getElementById('funMessage');
+    const newButtonContainer = document.getElementById('newButtonContainer');
     const picture = document.getElementById('picture');
 
+    // Yes button click
     yesButton.addEventListener('click', () => {
+        buttonsContainer.classList.add('hidden');
         letter.classList.remove('hidden');
         picture.classList.remove('hidden');
         travelButton.classList.remove('hidden');
+    });
+
+    // No button click
+noButton.addEventListener('click', () => {
+    // Immediately hide buttons
+    buttonsContainer.remove();
+    
+    // Show message for 3 seconds (2 seconds longer)
+    funMessage.classList.remove('hidden');
+    setTimeout(() => {
         funMessage.classList.add('hidden');
-        yesButton.style.transform = 'scale(1)';
+        newButtonContainer.classList.remove('hidden');
+    }, 3000); // Changed from 1500ms to 3000ms
+});
+
+    // Forced Yes button click
+    document.getElementById('forcedYesButton').addEventListener('click', () => {
+        newButtonContainer.classList.add('hidden');
+        letter.classList.remove('hidden');
+        picture.classList.remove('hidden');
+        travelButton.classList.remove('hidden');
     });
 
-    noButton.addEventListener('click', () => {
-        funMessage.classList.remove('hidden');
-        noButton.style.display = 'none';
-        yesButton.style.transform = 'scale(1.2)';
-        yesButton.textContent = 'YES!! (Please?) 💝';
-    });
-
+    // Travel button click
     travelButton.addEventListener('click', () => {
-        alert('🎉 Yay! Let\'s start with Paris! 🗼❤️');
+        alert('🎉 Let\'s start our adventure! Where should we go first? 🌍❤️');
     });
 
     // Initialize animations
