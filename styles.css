@@ -1,171 +1,147 @@
-/* General Styles */
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: 'Cursive', sans-serif;
-  background: linear-gradient(to bottom, #ffefef, #ffe0f7);
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+    background: #ffe6f2;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
-header.love-header {
-  text-align: center;
-  padding: 20px;
-  background-color: #ff6b6b;
-  color: white;
-  border-bottom: 5px solid #ff9999;
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+    width: 90%;
+    max-width: 600px;
+    margin: 20px;
+    position: relative;
+    z-index: 1;
 }
 
-header.love-header button {
-  background-color: white;
-  color: #ff6b6b;
-  border: 2px solid #ff6b6b;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+h1 {
+    color: #ff69b4;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-header.love-header button:hover {
-  background-color: #ff6b6b;
-  color: white;
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
-header.love-header p {
-  font-size: 1.2rem;
-  margin: 10px 0;
-  white-space: pre-wrap;
+button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Falling Hearts */
-#hearts-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1000;
+#yesButton {
+    background: #ff69b4;
+    color: white;
 }
 
-.heart {
-  position: absolute;
-  font-size: 2rem;
-  animation: fall 3s linear infinite;
+#noButton {
+    background: #ff9eb4;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Falling elements animation */
+.falling-elements {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh + 100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.falling-element {
+    position: absolute;
+    animation: fall linear infinite;
+    font-size: 24px;
+    opacity: 0.8;
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(-100px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
 
-/* Side Decorations */
-.side-decor {
-  position: fixed;
-  top: 0;
-  width: 50px;
-  height: 100%;
-  font-size: 2rem;
-  line-height: 1.5;
-  z-index: 999;
-  pointer-events: none;
+/* Additional styles */
+.love-photo {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    margin: 1.5rem auto;
+    display: block;
+    border: 4px solid #ff69b4;
 }
 
-.side-decor.left {
-  left: 0;
-  text-align: center;
-  animation: float 5s infinite alternate ease-in-out;
+#letter {
+    text-align: center;
+    color: #ff69b4;
+    line-height: 1.6;
+    margin: 1rem 0;
 }
 
-.side-decor.right {
-  right: 0;
-  text-align: center;
-  animation: float 5s infinite alternate ease-in-out reverse;
+#travelButton {
+    background: #ff69b4;
+    color: white;
+    margin-top: 1.5rem;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-20px);
-  }
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
 }
 
-/* Travel Section */
-.travel-section {
-  text-align: center;
-  padding: 20px;
+#musicToggle {
+    background: #ff69b4;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
 }
 
-.travel-section h2 {
-  font-size: 2rem;
-  color: #ff6b6b;
-}
-
-/* Places List */
-#places-list {
-  text-align: left;
-  margin: 20px auto;
-  max-width: 600px;
-}
-
-.place-item {
-  margin-bottom: 20px;
-  border: 2px solid #ff6b6b;
-  border-radius: 10px;
-  padding: 10px;
-  background: white;
-}
-
-.place-item h3 {
-  margin: 0;
-  color: #ff6b6b;
-  cursor: pointer;
-}
-
-.place-item img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  margin: 10px 0;
-  display: none; /* Initially hidden */
-}
-
-.place-item p {
-  display: none; /* Initially hidden */
-  font-size: 1rem;
-  color: #333;
-  margin: 5px 0;
-}
-
-.place-item label {
-  display: none; /* Initially hidden */
-  margin-top: 10px;
-}
-
-/* Progress Bar */
-#progress-bar-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 10;
-}
-
-#progress {
-  width: 0;
-  height: 100%;
-  background: #ff6b6b;
-  transition: width 0.5s ease;
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    button {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+    }
 }
