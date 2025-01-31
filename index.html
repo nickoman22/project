@@ -1,51 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine's Day Love Site</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💘</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Love Letter Button -->
-  <header class="love-header">
-    <button id="show-love-letter">Click Me for a Surprise ❤️</button>
-    <p id="love-letter" style="display: none;">
-      My dearest,  
-      You are the reason my heart beats a little faster every day. Here's a list of dreams for us, and I can't wait to explore them with you.  
-      Forever yours,  
-      [Your Name]
-    </p>
-  </header>
+    <div class="falling-elements"></div>
+    
+    <div class="container">
+        <h1>Will you be my Valentine? 💖</h1>
+        
+        <div class="buttons">
+            <button id="yesButton">YES!! 🌹</button>
+            <button id="noButton">No 🥺</button>
+        </div>
 
-  <!-- Falling Hearts Container -->
-  <div id="hearts-container"></div>
+        <div id="letter" class="hidden">
+            <p>Dear [Your Name],</p>
+            <p>[Your personal message here...]</p>
+            <button id="travelButton" class="hidden">Travel the world with me? 🌍✈️</button>
+        </div>
 
-  <!-- Side Decorations -->
-  <div class="side-decor left">
-    🌷💖🌷💖🌷💖
-  </div>
-  <div class="side-decor right">
-    💖🌷💖🌷💖🌷
-  </div>
+        <div id="funMessage" class="hidden">
+            <p>Nice try! You can't say no! 😘 Click YES!! 💖</p>
+        </div>
 
-  <main>
-    <!-- Travel Section -->
-    <section class="travel-section">
-      <h2>Our Dream Destinations 💖</h2>
-      
-      <!-- List of Places -->
-      <div id="places-list">
-        <!-- List of places will be dynamically added here -->
-      </div>
-    </section>
-  </main>
+        <div id="picture" class="hidden">
+            <img src="your-image.jpg" alt="Our Photo" class="love-photo">
+        </div>
+    </div>
 
-  <!-- Progress Bar -->
-  <div id="progress-bar-container">
-    <div id="progress"></div>
-  </div>
+    <div class="music-control">
+        <button id="musicToggle">🎵 Play Music</button>
+        <audio id="backgroundMusic" loop>
+            <source src="your-song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
