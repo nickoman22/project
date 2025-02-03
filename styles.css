@@ -14,6 +14,13 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
+    animation: moveWallpaper 30s linear infinite;
+}
+
+@keyframes moveWallpaper {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
