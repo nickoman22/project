@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        // Create massive heart explosion
-        const hearts = ['❤️', '💖', '💕', '💓', '💗', '💘'];
-        const heartCount = 100; // Increased from 30 to 100
+        // Create heart explosion (reduced number of hearts to prevent lag)
+        const hearts = ['❤️', '💖', '💕'];
+        const heartCount = 30; // Reduced from 100 to 30
         
         for (let i = 0; i < heartCount; i++) {
             const heart = document.createElement('div');
@@ -75,14 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Random properties for each heart
             const tx = (Math.random() - 0.5) * window.innerWidth; // Full screen width spread
             const ty = (Math.random() - 0.5) * window.innerHeight; // Full screen height spread
-            const rotate = (Math.random() - 0.5) * 360; // Full rotation
-            const delay = Math.random() * 1; // Longer staggered start
-            const size = 20 + Math.random() * 30; // Bigger size variation
-            const duration = 4 + Math.random() * 2; // Longer duration (4-6 seconds)
+            const rotate = (Math.random() - 0.5) * 60; // Rotation (-30deg to +30deg)
+            const delay = Math.random() * 0.5; // Staggered start
+            const size = 20 + Math.random() * 20; // Random size (20px to 40px)
+            const duration = 2 + Math.random() * 1; // Shorter duration (2-3 seconds)
 
             // Random start position around the button
-            const startX = centerX + (Math.random() - 0.5) * 200;
-            const startY = centerY + (Math.random() - 0.5) * 200;
+            const startX = centerX + (Math.random() - 0.5) * 100;
+            const startY = centerY + (Math.random() - 0.5) * 100;
 
             heart.style.setProperty('--tx', `${tx}px`);
             heart.style.setProperty('--ty', `${ty}px`);
@@ -108,12 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // No button click
     noButton.addEventListener('click', () => {
+        // Hide buttons instantly
+        buttonsContainer.remove();
+        
         // Show message
         funMessage.classList.remove('hidden');
         
-        // Remove original buttons after delay
+        // Show new button after delay
         setTimeout(() => {
-            buttonsContainer.remove();
             funMessage.classList.add('hidden');
             newButtonContainer.classList.remove('hidden');
         }, 1500);
