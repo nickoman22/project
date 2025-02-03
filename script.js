@@ -4,13 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.querySelector('.falling-elements');
         const emojis = ['❤️', '💖', '🌷', '🌸', '💐', '🌹'];
         
-        for (let i = 0; i < 40; i++) {
+        // Create 60 falling elements for a more continuous effect
+        for (let i = 0; i < 60; i++) {
             const element = document.createElement('div');
             element.className = 'falling-element';
             element.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            element.style.left = Math.random() * 100 + '%';
-            element.style.animationDuration = Math.random() * 3 + 5 + 's';
-            element.style.animationDelay = Math.random() * 2 + 's';
+            
+            // Random position and animation properties
+            const left = Math.random() * 100; // Random horizontal position
+            const delay = Math.random() * 10; // Staggered start for continuous effect
+            const duration = 5 + Math.random() * 5; // Random duration (5-10 seconds)
+
+            element.style.left = `${left}%`;
+            element.style.animationDuration = `${duration}s`;
+            element.style.animationDelay = `${delay}s`;
+
+            // Add transparency for elements in the middle of the screen
+            if (left > 30 && left < 70) {
+                element.classList.add('middle-zone');
+            }
+
             container.appendChild(element);
         }
     }
@@ -43,37 +56,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const newButtonContainer = document.getElementById('newButtonContainer');
     const picture = document.getElementById('picture');
 
-    // Yes button click
+    // Enhanced YES button click
     yesButton.addEventListener('click', (e) => {
         // Get button position
         const rect = e.target.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        // Create heart explosion
-        const hearts = ['❤️', '💖', '💕'];
-        for (let i = 0; i < 30; i++) {
+        // Create massive heart explosion
+        const hearts = ['❤️', '💖', '💕', '💓', '💗', '💘'];
+        const heartCount = 100; // Increased from 30 to 100
+        
+        for (let i = 0; i < heartCount; i++) {
             const heart = document.createElement('div');
             heart.className = 'heart-explosion';
             heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
             
             // Random properties for each heart
-            const tx = (Math.random() - 0.5) * 150; // Horizontal spread (-75px to +75px)
-            const rotate = (Math.random() - 0.5) * 60; // Rotation (-30deg to +30deg)
-            const delay = Math.random() * 0.5; // Staggered start
-            const size = 20 + Math.random() * 20; // Random size (20px to 40px)
+            const tx = (Math.random() - 0.5) * window.innerWidth; // Full screen width spread
+            const ty = (Math.random() - 0.5) * window.innerHeight; // Full screen height spread
+            const rotate = (Math.random() - 0.5) * 360; // Full rotation
+            const delay = Math.random() * 1; // Longer staggered start
+            const size = 20 + Math.random() * 30; // Bigger size variation
+            const duration = 4 + Math.random() * 2; // Longer duration (4-6 seconds)
+
+            // Random start position around the button
+            const startX = centerX + (Math.random() - 0.5) * 200;
+            const startY = centerY + (Math.random() - 0.5) * 200;
 
             heart.style.setProperty('--tx', `${tx}px`);
+            heart.style.setProperty('--ty', `${ty}px`);
             heart.style.setProperty('--rotate', `${rotate}deg`);
-            heart.style.left = `${centerX}px`;
-            heart.style.top = `${centerY}px`;
+            heart.style.left = `${startX}px`;
+            heart.style.top = `${startY}px`;
             heart.style.fontSize = `${size}px`;
             heart.style.animationDelay = `${delay}s`;
+            heart.style.animationDuration = `${duration}s`;
 
             document.body.appendChild(heart);
 
             // Remove hearts after animation
-            setTimeout(() => heart.remove(), 2500);
+            setTimeout(() => heart.remove(), (duration + delay) * 1000);
         }
 
         // Hide buttons and show content
