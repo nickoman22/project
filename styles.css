@@ -90,7 +90,6 @@ h1 {
     max-height: 90vh; /* Limit height to 90% of the viewport */
     overflow-y: auto; /* Enable scrolling inside the container */
 }
-
 @keyframes moveWallpaper {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
