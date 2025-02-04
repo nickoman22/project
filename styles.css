@@ -16,6 +16,80 @@ body {
     position: relative;
     animation: moveWallpaper 30s linear infinite;
 }
+/* Add this to enable scrolling and adjust text size */
+body {
+    background: #ffe6f2 url('wallpaper.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to flex-start */
+    overflow: auto; /* Enable scrolling */
+    position: relative;
+    animation: moveWallpaper 30s linear infinite;
+    padding: 20px; /* Add padding to prevent text from touching edges */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem; /* Reduced padding */
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #ff69b4;
+    font-size: 1.8rem; /* Reduced font size */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+.letter-header {
+    font-size: 1.3rem; /* Reduced font size */
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 1rem; /* Reduced margin */
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+.letter-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem; /* Reduced padding */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+    line-height: 1.6; /* Adjusted line height */
+    font-size: 1rem; /* Reduced font size */
+    color: #555;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.letter-content p {
+    margin-bottom: 1rem; /* Reduced margin */
+    text-indent: 1.5rem;
+}
+
+.letter-content p:first-child {
+    font-weight: bold;
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 1rem; /* Reduced margin */
+    text-indent: 0;
+}
+
+/* Ensure the container doesn't overflow */
+.container {
+    max-height: 90vh; /* Limit height to 90% of the viewport */
+    overflow-y: auto; /* Enable scrolling inside the container */
+}
 
 @keyframes moveWallpaper {
     0% { background-position: 0% 50%; }
