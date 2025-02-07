@@ -122,9 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
         travelButton.classList.remove('hidden');
     });
 
-    // Travel Button - Final romantic message
+    // Travel Button - Open new website
     travelButton.addEventListener('click', () => {
-        alert('🎉 Ας ξεκινήσουμε την περιπέτεια μας! Πού θα πάμε πρώτα; 🌍❤️');
+        window.open('https://nickoman22.github.io/tavel/', '_blank');
     });
 
     // Initialize animations
