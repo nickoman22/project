@@ -5,9 +5,7 @@
 }
 
 body {
-    background: 
-        linear-gradient(rgba(255, 154, 158, 0.1), rgba(250, 208, 196, 0.1)),
-        url('wallpaper.jpg') no-repeat center center fixed;
+    background: #ffe6f2 url('wallpaper.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Comic Sans MS', cursive;
     min-height: 100vh;
@@ -17,6 +15,13 @@ body {
     overflow: hidden;
     position: relative;
     padding: 20px;
+    animation: moveWallpaper 30s linear infinite;
+}
+
+@keyframes moveWallpaper {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -146,7 +151,7 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 1rem; /* Added margin to ensure the button is visible */
+    margin-bottom: 1rem;
 }
 
 #travelButton {
@@ -290,7 +295,7 @@ button:hover {
 @media (max-width: 480px) {
     .container {
         padding: 1.5rem;
-        max-height: 85vh; /* Adjusted for better scrolling on mobile */
+        max-height: 85vh;
     }
     
     h1 {
