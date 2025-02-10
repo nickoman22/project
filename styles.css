@@ -5,8 +5,7 @@
 }
 
 body {
-    background: #ffe6f2 url('wallpaper.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     font-family: 'Comic Sans MS', cursive;
     min-height: 100vh;
     display: flex;
@@ -14,34 +13,34 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
-    animation: moveWallpaper 30s linear infinite;
     padding: 20px;
-}
-
-@keyframes moveWallpaper {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 600px;
     margin: 20px auto;
     position: relative;
     z-index: 1;
-    max-height: 90vh;
+    max-height: 80vh; /* Adjusted for better scrolling */
     overflow-y: auto;
     text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    padding-bottom: 3rem; /* Added padding to ensure the button is visible */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
     color: #ff69b4;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
     animation: pulse 2s infinite;
 }
@@ -61,23 +60,28 @@ h1 {
 }
 
 button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     border: none;
-    border-radius: 15px;
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background: #ff69b4;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
 }
 
 #yesButton {
-    background: #ff69b4;
-    color: white;
     animation: float 3s ease-in-out infinite;
 }
 
 #noButton {
     background: #ff9eb4;
-    color: white;
     animation: shake 1s ease-in-out infinite;
 }
 
@@ -101,27 +105,28 @@ button {
 
 /* Letter styling */
 .letter-header {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #ff69b4;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     letter-spacing: 1px;
 }
 
 .letter-content {
     background: rgba(255, 255, 255, 0.9);
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
-    line-height: 1.6;
-    font-size: 1.1rem;
+    line-height: 1.8;
+    font-size: 1.2rem;
     color: #555;
     margin: 0 auto;
     text-align: left;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .letter-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-indent: 1.5rem;
 }
 
@@ -129,7 +134,7 @@ button {
     font-weight: bold;
     color: #ff69b4;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-indent: 0;
 }
 
@@ -137,14 +142,15 @@ button {
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem; /* Added margin to ensure the button is visible */
 }
 
 #travelButton {
     background: #ff69b4;
     color: white;
-    padding: 0.8rem 2rem;
-    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
     border-radius: 25px;
     border: none;
     cursor: pointer;
@@ -153,7 +159,7 @@ button {
 
 #travelButton:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
 }
 
 /* Falling elements */
@@ -170,7 +176,7 @@ button {
 .falling-element {
     position: absolute;
     animation: fall linear infinite;
-    font-size: 24px;
+    font-size: 28px;
     opacity: 0;
     will-change: transform, opacity;
 }
@@ -210,7 +216,7 @@ button {
 #musicToggle {
     background: #ff69b4;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 25px;
     border: none;
     cursor: pointer;
@@ -219,17 +225,17 @@ button {
 
 #musicToggle:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
 }
 
 /* Forced Yes button */
 #forcedYesButton {
     background: #ff69b4;
     color: white;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
     border-radius: 25px;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     animation: heartbeat 1.2s infinite;
 }
 
@@ -243,9 +249,9 @@ button {
 
 #funMessage {
     color: #ff69b4;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-align: center;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     animation: fadeIn 0.5s ease-out;
 }
 
@@ -270,7 +276,7 @@ button {
 
 .heart-explosion {
     position: absolute;
-    font-size: 24px;
+    font-size: 28px;
     animation: heartFloat 2.5s ease-out forwards;
     pointer-events: none;
     z-index: 999;
@@ -280,15 +286,21 @@ button {
 
 @media (max-width: 480px) {
     .container {
-        padding: 1rem;
+        padding: 1.5rem;
+        max-height: 85vh; /* Adjusted for better scrolling on mobile */
     }
     
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     
     button {
-        font-size: 1rem;
-        padding: 0.7rem 1.2rem;
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .letter-content {
+        font-size: 1.1rem;
+        line-height: 1.6;
     }
 }
