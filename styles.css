@@ -5,7 +5,10 @@
 }
 
 body {
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: 
+        linear-gradient(rgba(255, 154, 158, 0.1), rgba(250, 208, 196, 0.1)),
+        url('wallpaper.jpg') no-repeat center center fixed;
+    background-size: cover;
     font-family: 'Comic Sans MS', cursive;
     min-height: 100vh;
     display: flex;
@@ -26,11 +29,11 @@ body {
     margin: 20px auto;
     position: relative;
     z-index: 1;
-    max-height: 80vh; /* Adjusted for better scrolling */
+    max-height: 80vh;
     overflow-y: auto;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-    padding-bottom: 3rem; /* Added padding to ensure the button is visible */
+    padding-bottom: 3rem;
 }
 
 @keyframes fadeIn {
