@@ -1,52 +1,303 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Θα γίνεις η Βαλεντίνα μου; 💘</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="falling-elements"></div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Comic Sans MS', cursive;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: #ff69b4;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#buttonsContainer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #ff69b4;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+#yesButton {
+    animation: float 3s ease-in-out infinite;
+}
+
+#noButton {
+    background: #ff9eb4;
+    animation: shake 1s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Letter styling */
+.letter-header {
+    font-size: 1.6rem;
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.letter-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0 auto;
+    text-align: left;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.letter-content p {
+    margin-bottom: 1.5rem;
+    text-indent: 1.5rem;
+}
+
+.letter-content p:first-child {
+    font-weight: bold;
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-indent: 0;
+}
+
+/* Travel button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#travelButton {
+    background: #ff69b4;
+    color: white;
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#travelButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Falling elements */
+.falling-elements {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh + 100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.falling-element {
+    position: absolute;
+    animation: fall linear infinite;
+    font-size: 28px;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+@keyframes fall {
+    0% { 
+        transform: translateY(-100px) rotate(0deg); 
+        opacity: 0; 
+    }
+    10% { 
+        opacity: 1; 
+    }
+    50% { 
+        opacity: 0.5; 
+    }
+    90% { 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg); 
+        opacity: 0; 
+    }
+}
+
+.falling-element.middle-zone {
+    opacity: 0.3;
+}
+
+/* Music control */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+#musicToggle {
+    background: #ff69b4;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#musicToggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+/* Forced Yes button */
+#forcedYesButton {
+    background: #ff69b4;
+    color: white;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    margin: 1.5rem 0;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#funMessage {
+    color: #ff69b4;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Heart explosion animation */
+@keyframes heartFloat {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 10px rgba(255, 60, 110, 0.5));
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(var(--tx), -100px) scale(1.2) rotate(var(--rotate));
+        filter: drop-shadow(0 0 20px rgba(255, 60, 110, 0.8));
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), -200px) scale(0.8) rotate(var(--rotate));
+        filter: drop-shadow(0 0 30px rgba(255, 60, 110, 0.3));
+    }
+}
+
+.heart-explosion {
+    position: absolute;
+    font-size: 28px;
+    animation: heartFloat 2.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 999;
+    color: #ff69b4;
+    will-change: transform, opacity;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
     
-    <div class="container">
-        <h1>Θα γίνεις η Βαλεντίνα μου; 💖</h1>
-        
-        <div id="buttonsContainer">
-            <button id="yesButton">ΝΑΙ!! 🌹</button>
-            <button id="noButton">Όχι 🥺</button>
-        </div>
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    button {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
 
-        <div id="letter" class="hidden">
-            <p class="letter-header">Μαριαλένα μου,</p>
-            <div class="letter-content">
-                <p>Στην πιο όμορφη και μοναδική γυναίκα που φωτίζει τη ζωή μου,</p>
-                <p>Χρόνια πολλά, αγάπη μου! Δεν ξέρω αν στο λέω αρκετά, αλλά είμαι απίστευτα τυχερός που σε έχω δίπλα μου. Κάθε μέρα προσπαθώ να σε κάνω χαρούμενη, γιατί το αξίζεις όσο κανείς άλλος.</p>
-                <p>Λατρεύω το χιούμορ σου, την απίστευτα γλυκιά προσωπικότητά σου, την καλή σου καρδιά. Μπορεί να το παίζεις σκληρή, αλλά ξέρω πόσο ευαίσθητη είσαι, κι αυτό σε κάνει ακόμα πιο ξεχωριστή. Ξέρω επίσης ότι πολλές φορές σου σπάω τα νεύρα (όπως κι εσύ τα δικά μου 😜), αλλά ακόμα κι αυτό είναι κομμάτι του πόσο ταιριάζουμε.</p>
-                <p>Θέλω να ζήσουμε όσο περισσότερες στιγμές μπορούμε, να κάνουμε αμέτρητα ταξίδια μαζί και να δημιουργήσουμε μοναδικές αναμνήσεις που θα θυμόμαστε μια ζωή.</p>
-            </div>
-            <div class="button-container">
-                <button id="travelButton" class="hidden">Θα ταξιδέψουμε τον κόσμο μαζί; 🌍✈️</button>
-            </div>
-        </div>
-
-        <div id="funMessage" class="hidden">
-            <p>Το ήξερα ότι θα το έκανες... αλλά δεν είναι επιλογή 😉</p>
-        </div>
-
-        <div id="newButtonContainer" class="hidden">
-            <button id="forcedYesButton">ΤΩΡΑ ΠΑΤΑ ΝΑΙ !! ❤️</button>
-        </div>
-    </div>
-
-    <div class="music-control">
-        <button id="musicToggle">🎵 Παίξε Μουσική</button>
-        <audio id="backgroundMusic" loop>
-            <source src="your-song.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    .letter-content {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+}
