@@ -7,12 +7,12 @@
 body {
     background: #ffe6f2 url('wallpaper.jpg') no-repeat center center fixed;
     background-size: cover;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Comic Sans MS', cursive;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    overflow: auto;
+    align-items: center;
+    overflow: hidden;
     position: relative;
     animation: moveWallpaper 30s linear infinite;
     padding: 20px;
@@ -36,13 +36,13 @@ body {
     z-index: 1;
     max-height: 90vh;
     overflow-y: auto;
+    text-align: center;
 }
 
 h1 {
     color: #ff69b4;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    text-align: center;
     animation: pulse 2s infinite;
 }
 
@@ -117,6 +117,7 @@ button {
     font-size: 1.1rem;
     color: #555;
     margin: 0 auto;
+    text-align: left;
 }
 
 .letter-content p {
