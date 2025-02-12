@@ -108,11 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonsContainer.remove();
         // Show temporary message
         funMessage.classList.remove('hidden');
-        // Show forced YES button after delay
+        // Show forced YES button after delay (increased to 5 seconds)
         setTimeout(() => {
             funMessage.classList.add('hidden');
             newButtonContainer.classList.remove('hidden');
-        }, 1500);
+        }, 5000); // Changed from 1500ms to 5000ms (5 seconds)
     });
 
     // Forced YES Button - Secondary acceptance
