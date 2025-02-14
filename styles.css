@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align container to the top */
+    align-items: center; /* Center the initial box */
     overflow: hidden;
     position: relative;
     padding: 20px;
@@ -31,10 +31,10 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 600px;
-    margin: 10vh auto 20px; /* Adjusted margin-top to 10vh */
+    margin: 20px auto;
     position: relative;
     z-index: 1;
-    max-height: 75vh; /* Reduced height to fit better */
+    max-height: 90vh; /* Adjusted for better fit */
     overflow-y: auto;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
