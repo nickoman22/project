@@ -34,11 +34,11 @@ body {
     margin: 20px auto;
     position: relative;
     z-index: 1;
-    max-height: 80vh;
+    max-height: 70vh; /* Reduced height for better scrolling */
     overflow-y: auto;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-    padding-bottom: 3rem;
+    padding-bottom: 6rem; /* Added more padding at the bottom */
 }
 
 @keyframes fadeIn {
@@ -222,6 +222,10 @@ button:hover {
     bottom: 20px;
     right: 20px;
     z-index: 2;
+    background: rgba(255, 105, 180, 0.8); /* Semi-transparent background */
+    border-radius: 25px;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
 }
 
 #musicToggle {
@@ -297,17 +301,13 @@ button:hover {
 
 @media (max-width: 480px) {
     .container {
-        padding: 1.5rem;
-        max-height: 85vh;
+        max-height: 60vh; /* Even more space for mobile */
+        padding-bottom: 8rem; /* Extra padding for the music button */
     }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    button {
-        font-size: 1.1rem;
-        padding: 0.8rem 1.5rem;
+
+    .music-control {
+        bottom: 10px; /* Adjusted position for mobile */
+        right: 10px;
     }
 
     .letter-content {
