@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align container to the top */
     overflow: hidden;
     position: relative;
     padding: 20px;
@@ -31,14 +31,14 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 600px;
-    margin: 20px auto;
+    margin: 10vh auto 20px; /* Adjusted margin-top to 10vh */
     position: relative;
     z-index: 1;
-    max-height: 80vh; /* Adjusted for better fit */
+    max-height: 75vh; /* Reduced height to fit better */
     overflow-y: auto;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-    padding-bottom: 8rem; /* Added more padding for the music button */
+    padding-bottom: 2rem; /* Reduced padding at the bottom */
 }
 
 @keyframes fadeIn {
@@ -126,7 +126,7 @@ button:hover {
     padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
-    line-height: 1.8; /* Increased line height */
+    line-height: 1.8;
     font-size: 1.2rem;
     color: #555;
     margin: 0 auto;
@@ -154,7 +154,7 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 2rem; /* Added more margin for spacing */
+    margin-bottom: 1rem;
 }
 
 #travelButton {
@@ -301,8 +301,8 @@ button:hover {
 
 @media (max-width: 480px) {
     .container {
-        max-height: 85vh; /* Adjusted for mobile */
-        padding-bottom: 10rem; /* Extra padding for the music button */
+        max-height: 80vh; /* Adjusted for mobile */
+        padding-bottom: 4rem; /* Reduced padding for mobile */
     }
 
     .music-control {
@@ -312,7 +312,7 @@ button:hover {
 
     .letter-content {
         font-size: 1.3rem;
-        line-height: 2; /* Increased line height for mobile */
+        line-height: 2;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
